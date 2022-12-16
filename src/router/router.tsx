@@ -1,25 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
-
-import Error from './Error';
-import Home from '@/pages/home';
-import About from '@/pages/about';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-    errorElement: <Error />,
-    children: [
-      {
-        path: 'home',
-        element: <Home />,
-      },
-      {
-        path: 'about',
-        element: <About />,
-      },
-    ],
-  },
-]);
-
-export default router;
+import { Link, Outlet } from 'react-router-dom';
+export default function Rooter() {
+  return (
+    <div>
+      <h1>React Router v6.4 新特性</h1>
+      <nav style={{ display: 'flex', borderBottom: 'solid #000', paddingBottom: '1rem' }}>
+        <Link to="invoices">Invoices</Link> | {''}
+        <Link to="expenses">Expenses</Link>
+      </nav>
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+}
