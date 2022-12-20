@@ -38,3 +38,16 @@ const router = createBrowserRouter(
   )
 );
 ```
+
+## git commit 报错
+
+报错如下
+husky - pre-commit hook exited with code 1 (error)
+在 package.json 中将单引号更改为双引号
+
+```
+"*.{ts,tsx}": [
+      "npm run lint",
+      "bash -c \"npm run check-types\""
+    ]
+```
