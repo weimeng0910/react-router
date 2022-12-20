@@ -57,7 +57,7 @@
     ],
     "*.{ts,tsx}": [
       "npm run lint",
-      "bash -c 'npm run check-types'"
+      "bash -c \"npm run check-types\""
     ]
   },
   "*.{html,css,less,scss,md}": [
