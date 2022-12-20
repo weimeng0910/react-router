@@ -14,7 +14,7 @@ let invoices = [
   {
     name: 'yu lanlan ',
     number: 1979,
-    amout: '$110800',
+    amout: '$1108001',
     due: '22/05/2012'
   },
   {
@@ -25,9 +25,17 @@ let invoices = [
   },
   {
     name: 'meng wei',
-    number: 1995,
-    amout: '$11110800',
+    number: 1988,
+    amout: '$111108001',
     due: '12/05/1975'
   },
 
 ]
+export const getInvoices = () => invoices;
+
+//处理数据的方法，根据传入的url参数来过滤数据
+export function getInvoice(number: number) {
+  return invoices.find(
+    (invoice) => invoice.number === number
+  );
+}
