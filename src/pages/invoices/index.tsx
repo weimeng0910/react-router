@@ -1,8 +1,13 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
+import { NavLink, Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import { getInvoices } from '@/data/data';
-
+//自定义一个myNavLink
+const QueryNavLink = ({ to, ...props }) => {
+  let location = useLocation();
+  console.log(location.search);
+  return <NavLink to={to + location.search} {...props}></NavLink>;
+};
 const Invoices: React.FC = () => {
   let invoicesData = getInvoices();
   //获取url中的参数
@@ -28,7 +33,7 @@ const Invoices: React.FC = () => {
           })
           .map(invoice => {
             return (
-              <NavLink
+              <QueryNavLink
                 to={`/invoices/${invoice.number}`}
                 key={nanoid()}
                 style={({ isActive }) => {
@@ -40,7 +45,7 @@ const Invoices: React.FC = () => {
                 }}
               >
                 {invoice.name}
-              </NavLink>
+              </QueryNavLink>
             );
           })}
       </nav>
