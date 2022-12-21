@@ -8,6 +8,7 @@ interface Invoice {
 }
 export default function Invoice() {
   const params = useParams() as { invoiceId: string };
+
   let invoice = getInvoice(parseInt(params.invoiceId, 10)) as Invoice;
 
   return (
