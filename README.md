@@ -51,3 +51,31 @@ husky - pre-commit hook exited with code 1 (error)
       "bash -c \"npm run check-types\""
     ]
 ```
+
+### 用 Why Did You Render 调试 React 的性能问题
+
+```
+yarn add --dev @welldone-software/why-did-you-render
+```
+
+1、在项目的根目录下添加一个 wdyr.js 文件。
+
+```
+import React from "react";
+
+// Make sure to only include the library in development
+if (process.env.NODE_ENV === "development") {
+  const whyDidYouRender = require("@welldone-software/why-did-you-render");
+  whyDidYouRender(React, {
+    trackAllPureComponents: true
+  });
+}
+
+
+```
+
+2、在 main.tsx 中导入 wdyr.ts 作为我们应用程序的第一个导入。
+
+```
+import "./wdyr"
+```
