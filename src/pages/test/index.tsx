@@ -16,7 +16,7 @@ export default function Test() {
   return (
     <div>
       <h1>why-did-your-render</h1>
-      {num}
+      <h2>{num}</h2>
     </div>
   );
 }
